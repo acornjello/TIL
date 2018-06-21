@@ -46,11 +46,10 @@ int main() {
 
 	convexHull.push_back( points[0] );
 	convexHull.push_back( points[1] );
-	bool check = false;
+
+	int resultOfOutProduct;
 	for (int i = 2; i < N; i++) {
-		
-	
-		while (convexHull.size() >= 2) {
+		if (convexHull.size() >= 2) {
 			int sz = convexHull.size();
 			Point p1 = convexHull[sz - 2];
 			Point p2 = convexHull[sz - 1];
@@ -59,32 +58,29 @@ int main() {
 			Point v1 = { p2.x - p1.x , p2.y - p1.y };
 			Point v2 = { next.x - p1.x , next.y - p1.y };
 
-			int resultOfOutProduct = outerProduct(v1, v2);
+			resultOfOutProduct = outerProduct(v1, v2);
+			//printf(" (%d, %d) X (%d, %d) = %d\n", v1.x, v1.y, v2.x, v2.y, resultOfOutProduct);
+			
 
-
-			if (resultOfOutProduct < 0 || check) {
-				Point top = convexHull.back();
-				convexHull.pop_back();
-				if (check) {
+			while (resultOfOutProduct <= 0) {
 					convexHull.pop_back();
-					convexHull.push_back(top);
-					check = resultOfOutProduct == 0 ? true : false;
-				}
-			} else {
-				if (resultOfOutProduct == 0) check = true;
-				convexHull.push_back(next);
-				break;
+					if (convexHull.size() < 2) break;
+					sz = convexHull.size();
+					p1 = convexHull[sz - 2];
+					p2 = convexHull[sz - 1];
+					v1 = { p2.x - p1.x , p2.y - p1.y };
+					v2 = { next.x - p1.x , next.y - p1.y };
+					resultOfOutProduct = outerProduct(v1, v2);
+					//printf(" (%d, %d) X (%d, %d) = %d\n", v1.x, v1.y, v2.x, v2.y, resultOfOutProduct);
 			}
-		}
+			convexHull.push_back(next);
 
-		
+		}	
 	}
-
-	cout << convexHull.size() << endl;
-
-	/*for (auto p : convexHull) {
+	cout << convexHull.size();
+	for (auto p : convexHull) {
 		cout << p.x << " " << p.y << endl;
-	}*/
+	}
 
 	return 0;
 }
