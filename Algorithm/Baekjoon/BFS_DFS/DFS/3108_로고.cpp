@@ -20,15 +20,18 @@ void dfs(int idx) {
 	int y2 = square[idx].y2;
 	int x2 = square[idx].x2;
 
-	for (int i = idx+1; i < N; i++) {
+	for (int i = 0; i < N; i++) {
+		if (visited[i]) continue;
+
 		int ny1 = square[i].y1;
 		int nx1 = square[i].x1;
 		int ny2 = square[i].y2;
 		int nx2 = square[i].x2;
-
-		if (nx1 > x1 && nx2 < x2 && ny1 > y1 && ny2 < y2) continue;
+		
+		if (x1 < nx1 && nx2 < x2 && y1 < ny1 && ny2 < y2) continue;
+		if (nx1 < x1 && nx2 > x2 && ny1 < y1 && ny2 > y2) continue;
 		if (nx1 > x2 || nx2 < x1 || ny1 > y2 || ny2 < y1) continue;
-		if (!visited[i]) dfs(i);
+		dfs(i);
 	}
 	
 }
