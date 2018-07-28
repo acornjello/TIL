@@ -15,6 +15,10 @@
 ### 전공
 - 네트워크
 - 데이터베이스
+	1. Data Structure
+		- 완전이진트리, heap
+	2. Algorithm
+		- Sorting Algorithm : Heap Sort에서 자료구조(완전이진트리 등)파트 링크 걸기
 - 운영체제
 - 컴퓨터구조
 - 자료구조 및 알고리즘
