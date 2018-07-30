@@ -31,7 +31,7 @@
 
 ## Heap Sort
 - 시간 복잡도 : O(nlogn)
-- 최대 힙 트리(내림차순)나 최소 힙 트리(오름차순)를 구성해 정렬 하는 방법.
+- 최대 [힙 트리](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Data%20Structure.md)(내림차순)나 최소 힙 트리(오름차순)를 구성해 정렬 하는 방법.
 
 ## Bubble Sort
 - 시간복잡도 : worst O(n^2), best O(n)  / 공간복잡도 : O(n)
