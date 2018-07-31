@@ -41,4 +41,21 @@
 	}
 	```
 6. [Heap Sort](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Sorting%20Algorithm.md)
-	
+
+## <a name="AVL Tree">AVL Tree
++ 각 노드 마다 왼쪽, 오른쪽 부분 트리의 높이 차가 1보다 크지 않은 성질을 가짐
++ 순회 시간복잡도 : O(logN) / 이반 이진 트리의 worst : O(N)
+
+## Map
++ 인덱스로 int가 아닌 자료형을 사용할 수 있는 배열.
++ map의 내부적인 구조는 각 노드가 key와 value 쌍으로 이뤄진 [균형이진트리(AVL Tree)](#AVL Tree))
++ key는 중복 불가.
++ 검색 속도가 빠름.
+	- 이유 : key를 기준으로 정렬된 상태이기 때문이다.
++ unordered_map도 존재.
+
+## Set
++ 많은 자료 중에서 원하는 key를 신속하게 찾고, key가 정렬되기 원할 때 사용.
++ map과 달리 key만 저장하며, key는 중복 불가.
++ key를 중복으로 사용하고 싶다면 multiset을 사용.
++ unordered_set도 존재.
