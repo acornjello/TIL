@@ -31,6 +31,7 @@
 
 ## Heap Sort
 - 시간 복잡도 : O(nlogn)
+  * 최초로 힙을 만드는 시간복잡도 O(n) + 말단 노드가 루트 노드에 올라오기까지 자리이동 O(nlogn)
 - 최대 [힙 트리](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Data%20Structure.md)(내림차순)나 최소 힙 트리(오름차순)를 구성해 정렬 하는 방법.
 
 ## Bubble Sort
@@ -41,7 +42,7 @@
 - 시간복잡도 : worst O(n^2), best O(n) / 공간복잡도 : O(n)
 - 한 번 순회를 하면서 가장 큰 수를 찾아서 배열의 마지막 위치와 교환하는 알고리즘.
 - 이미 정렬되어있는 배열의 경우, 정렬 알고리즘 중 가장 성능을 가짐.
-  (앞자리 원소와 한 번만 비교하면 되기 때문.)
+  (앞자리 원소와 한 번만 비교하면 되기 때문)
 
 ## Insertion Sort
 - 시간복잡도 : worst O(n^2), best O(n)
