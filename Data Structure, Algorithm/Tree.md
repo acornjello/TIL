@@ -1,36 +1,36 @@
 ## Graph
-1. µÎ Á¤Á¡ »çÀÌ¿¡ µÎ °³ ÀÌ»óÀÇ °æ·Î°¡ °¡´ÉÇÏ´Ù
-2. ¼øÈ¯, ºñ¼øÈ¯ ±¸Á¶
-3. ¹æÇâ ±×·¡ÇÁ, ¹«¹æÇâ ±×·¡ÇÁ
+1. ë‘ ì •ì  ì‚¬ì´ì— ë‘ ê°œ ì´ìƒì˜ ê²½ë¡œê°€ ê°€ëŠ¥í•˜ë‹¤
+2. ìˆœí™˜, ë¹„ìˆœí™˜ êµ¬ì¡°
+3. ë°©í–¥ ê·¸ëž˜í”„, ë¬´ë°©í–¥ ê·¸ëž˜í”„
 
 ## Tree
-1. µÎ °³ÀÇ Á¤Á¡ »çÀÌ¿¡ ¹Ýµå½Ã 1°³ÀÇ °æ·Î¸¸À» °¡Áø´Ù
-	+ µû¶ó¼­, ¼øÈ¯ÀÌ ¾ø´Ù.(ÀÚ±â ÀÚ½Åµµ Æ÷ÇÔ)
-2. ºÎ¸ð-ÀÚ½Ä °ü°è¸¦ °¡Áø´Ù.
-3. °£¼±Àº Ç×»ó Á¤Á¡ °³¼ö-1 ¸¸Å­ °¡Áø´Ù.
-4. Æ®¸®¸¦ DAG (¹æÇâ(2) ºñ¼øÈ¯(1)) ±×·¡ÇÁ¶ó°íµµ ÇÑ´Ù.
+1. ë‘ ê°œì˜ ì •ì  ì‚¬ì´ì— ë°˜ë“œì‹œ 1ê°œì˜ ê²½ë¡œë§Œì„ ê°€ì§„ë‹¤
+	+ ë”°ë¼ì„œ, ìˆœí™˜ì´ ì—†ë‹¤.(ìžê¸° ìžì‹ ë„ í¬í•¨)
+2. ë¶€ëª¨-ìžì‹ ê´€ê³„ë¥¼ ê°€ì§„ë‹¤.
+3. ê°„ì„ ì€ í•­ìƒ ì •ì  ê°œìˆ˜-1 ë§Œí¼ ê°€ì§„ë‹¤.
+4. íŠ¸ë¦¬ë¥¼ DAG (ë°©í–¥(2) ë¹„ìˆœí™˜(1)) ê·¸ëž˜í”„ë¼ê³ ë„ í•œë‹¤.
 
 ## Heap Tree
-1. ¿ÏÀüÀÌÁøÆ®¸® (Compelete Binary Tree)
-	: Æ®¸® ¿ø¼ÒµéÀ» ¿ÞÂÊºÎÅÍ Ã¤¿ö³ª°£ ÇüÅÂ
-2. ¿©·¯ °³ÀÇ °ª Áß¿¡¼­ °¡Àå Å©°Å³ª ÀÛÀº °ªÀ» ºü¸£°Ô Ã£±â À§ÇØ ¸¸µç ÀÌÁø Æ®¸®
-3. »ðÀÔ, »èÁ¦ ½Ã°£ º¹Àâµµ : O(logN)
-4. »ðÀÔ (ÃÖ´ë Èü °¡Á¤)
-	* ºÎ¸ð ³ëµå = idx/2	(1<=idx<=N)
-	1. °¡Àå ¸»´Ü ³ëµå¿¡ ³ëµå »ðÀÔ
-	2. ºÎ¸ð ³ëµå¿Í ºñ±³
-	3. ±ÔÄ¢¿¡ ¸ÂÁö ¾ÊÀ¸¸é ºÎ¸ð¿Í ±³È¯
-	4. ±ÔÄ¢¿¡ ¸ÂÀ» ¶§±îÁö 3°úÁ¤ ¹Ýº¹
+1. ì™„ì „ì´ì§„íŠ¸ë¦¬ (Compelete Binary Tree)
+	: íŠ¸ë¦¬ ì›ì†Œë“¤ì„ ì™¼ìª½ë¶€í„° ì±„ì›Œë‚˜ê°„ í˜•íƒœ
+2. ì—¬ëŸ¬ ê°œì˜ ê°’ ì¤‘ì—ì„œ ê°€ìž¥ í¬ê±°ë‚˜ ìž‘ì€ ê°’ì„ ë¹ ë¥´ê²Œ ì°¾ê¸° ìœ„í•´ ë§Œë“  ì´ì§„ íŠ¸ë¦¬
+3. ì‚½ìž…, ì‚­ì œ ì‹œê°„ ë³µìž¡ë„ : O(logN)
+4. ì‚½ìž… (ìµœëŒ€ íž™ ê°€ì •)
+	* ë¶€ëª¨ ë…¸ë“œ = idx/2	(1<=idx<=N)
+	1. ê°€ìž¥ ë§ë‹¨ ë…¸ë“œì— ë…¸ë“œ ì‚½ìž…
+	2. ë¶€ëª¨ ë…¸ë“œì™€ ë¹„êµ
+	3. ê·œì¹™ì— ë§žì§€ ì•Šìœ¼ë©´ ë¶€ëª¨ì™€ êµí™˜
+	4. ê·œì¹™ì— ë§žì„ ë•Œê¹Œì§€ 3ê³¼ì • ë°˜ë³µ
 	```
 	if( arr[idx] < arr[idx/2] ) swap(idx, idx/2);
 	else break;
 	```
-5. »èÁ¦ (ÃÖ¼Ò Èü °¡Á¤)
-	+ ÃÖ´ñ°ª ¶Ç´Â ÃÖ¼Ú°ªÀÌ ÀúÀåµÈ ·çÆ® ³ëµå¸¸ Á¦°ÅÇÒ ¼ö ÀÖÀ½.
-	+ ÀÚ½Ä ³ëµå = (¿Þ) idx*2 (¿À) idx*2 + 1
-	1. ·çÆ® ÀÚ¸®¿¡ °¡Àå ¸¶Áö¸· ³ëµå »ðÀÔ.
-	2. ¿Ã¶ó°£ ³ëµå¿Í ±×ÀÇ ÀÚ½Ä ³ëµåµéÀ» ºñ±³
-	3. Á¶°Ç¿¡ ¸¸Á·ÇÒ ¶§±îÁö ÀÚ½Ä°ú ±³È¯
+5. ì‚­ì œ (ìµœì†Œ íž™ ê°€ì •)
+	+ ìµœëŒ“ê°’ ë˜ëŠ” ìµœì†Ÿê°’ì´ ì €ìž¥ëœ ë£¨íŠ¸ ë…¸ë“œë§Œ ì œê±°í•  ìˆ˜ ìžˆìŒ.
+	+ ìžì‹ ë…¸ë“œ = (ì™¼) idx*2 (ì˜¤) idx*2 + 1
+	1. ë£¨íŠ¸ ìžë¦¬ì— ê°€ìž¥ ë§ˆì§€ë§‰ ë…¸ë“œ ì‚½ìž….
+	2. ì˜¬ë¼ê°„ ë…¸ë“œì™€ ê·¸ì˜ ìžì‹ ë…¸ë“œë“¤ì„ ë¹„êµ
+	3. ì¡°ê±´ì— ë§Œì¡±í•  ë•Œê¹Œì§€ ìžì‹ê³¼ êµí™˜
 	```
 	if( idx*2+1 < arr_size ) 
 	{
@@ -55,24 +55,24 @@
 6. [Heap Sort](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Sorting%20Algorithm.md)
 
 ## <a name="AVL Tree">AVL Tree
-+ °¢ ³ëµå ¸¶´Ù ¿ÞÂÊ, ¿À¸¥ÂÊ ºÎºÐ Æ®¸®ÀÇ ³ôÀÌ Â÷°¡ 1º¸´Ù Å©Áö ¾ÊÀº ¼ºÁúÀ» °¡Áü
-+ ¼øÈ¸ ½Ã°£º¹Àâµµ : O(logN) / ÀÌ¹Ý ÀÌÁø Æ®¸®ÀÇ worst : O(N)
++ ê° ë…¸ë“œ ë§ˆë‹¤ ì™¼ìª½, ì˜¤ë¥¸ìª½ ë¶€ë¶„ íŠ¸ë¦¬ì˜ ë†’ì´ ì°¨ê°€ 1ë³´ë‹¤ í¬ì§€ ì•Šì€ ì„±ì§ˆì„ ê°€ì§
++ ìˆœíšŒ ì‹œê°„ë³µìž¡ë„ : O(logN) / ì´ë°˜ ì´ì§„ íŠ¸ë¦¬ì˜ worst : O(N)
 
 ## <a name="Spanning">Spanning Tree
-- ¼øÈ¯ÀÌ ¾ø´Â ±×·¡ÇÁ
-  * ÃÖ¼Ò ºñ¿ë ½ºÆÐ´× Æ®¸® (MST) => Kruskal, Prim Algorithm
-   : °£¼±ÀÇ °¡ÁßÄ¡ ÇÕÀÌ ÃÖ¼ÒÀÎ ½ºÆÐ´× Æ®¸®
+- ìˆœí™˜ì´ ì—†ëŠ” ê·¸ëž˜í”„
+  * ìµœì†Œ ë¹„ìš© ìŠ¤íŒ¨ë‹ íŠ¸ë¦¬ (MST) => Kruskal, Prim Algorithm
+   : ê°„ì„ ì˜ ê°€ì¤‘ì¹˜ í•©ì´ ìµœì†Œì¸ ìŠ¤íŒ¨ë‹ íŠ¸ë¦¬
 
 ## Map
-+ ÀÎµ¦½º·Î int°¡ ¾Æ´Ñ ÀÚ·áÇüÀ» »ç¿ëÇÒ ¼ö ÀÖ´Â ¹è¿­.
-+ mapÀÇ ³»ºÎÀûÀÎ ±¸Á¶´Â °¢ ³ëµå°¡ key¿Í value ½ÖÀ¸·Î ÀÌ·ïÁø [±ÕÇüÀÌÁøÆ®¸®(AVL Tree)](#AVL Tree))
-+ key´Â Áßº¹ ºÒ°¡.
-+ °Ë»ö ¼Óµµ°¡ ºü¸§.
-	- ÀÌÀ¯ : key¸¦ ±âÁØÀ¸·Î Á¤·ÄµÈ »óÅÂÀÌ±â ¶§¹®ÀÌ´Ù.
-+ unordered_mapµµ Á¸Àç.
++ ì¸ë±ìŠ¤ë¡œ intê°€ ì•„ë‹Œ ìžë£Œí˜•ì„ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ë°°ì—´.
++ mapì˜ ë‚´ë¶€ì ì¸ êµ¬ì¡°ëŠ” ê° ë…¸ë“œê°€ keyì™€ value ìŒìœ¼ë¡œ ì´ë¤„ì§„ [ê· í˜•ì´ì§„íŠ¸ë¦¬(AVL Tree)](#AVL Tree))
++ keyëŠ” ì¤‘ë³µ ë¶ˆê°€.
++ ê²€ìƒ‰ ì†ë„ê°€ ë¹ ë¦„.
+	- ì´ìœ  : keyë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ëœ ìƒíƒœì´ê¸° ë•Œë¬¸ì´ë‹¤.
++ unordered_mapë„ ì¡´ìž¬.
 
 ## Set
-+ ¸¹Àº ÀÚ·á Áß¿¡¼­ ¿øÇÏ´Â key¸¦ ½Å¼ÓÇÏ°Ô Ã£°í, key°¡ Á¤·ÄµÇ±â ¿øÇÒ ¶§ »ç¿ë.
-+ map°ú ´Þ¸® key¸¸ ÀúÀåÇÏ¸ç, key´Â Áßº¹ ºÒ°¡.
-+ key¸¦ Áßº¹À¸·Î »ç¿ëÇÏ°í ½Í´Ù¸é multisetÀ» »ç¿ë.
-+ unordered_setµµ Á¸Àç.
++ ë§Žì€ ìžë£Œ ì¤‘ì—ì„œ ì›í•˜ëŠ” keyë¥¼ ì‹ ì†í•˜ê²Œ ì°¾ê³ , keyê°€ ì •ë ¬ë˜ê¸° ì›í•  ë•Œ ì‚¬ìš©.
++ mapê³¼ ë‹¬ë¦¬ keyë§Œ ì €ìž¥í•˜ë©°, keyëŠ” ì¤‘ë³µ ë¶ˆê°€.
++ keyë¥¼ ì¤‘ë³µìœ¼ë¡œ ì‚¬ìš©í•˜ê³  ì‹¶ë‹¤ë©´ multisetì„ ì‚¬ìš©.
++ unordered_setë„ ì¡´ìž¬.

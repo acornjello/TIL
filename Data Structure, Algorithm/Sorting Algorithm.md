@@ -1,49 +1,49 @@
 # Sorting Algorithm
-- ¿À¸§Â÷¼ø Á¤·ÄÀ¸·Î °¡Á¤ÇÏ¿© Á¤¸®
+- ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ìœ¼ë¡œ ê°€ì •í•˜ì—¬ ì •ë¦¬
 
 ## Merge Sort
-- ½Ã°£º¹Àâµµ : O(nlogn) / °ø°£º¹Àâµµ : O(n)
-- Á¤·ÄÇÒ ¿ø¼ÒµéÀ» ¹ÝÀ¸·Î ºÐÇÒÇØ ³ª°¡¸ç °¢ ºÐÇÒµÈ ¸®½ºÆ® ³»¿¡¼­ ¸ÕÀú Á¤·Ä ÈÄ º´ÇÕÇÏ¸ç Á¤·ÄÇÏ´Â °úÁ¤À» ÅëÇØ Á¤·ÄÇÏ´Â ¾Ë°í¸®Áò
-- ºÐÇÒ °úÁ¤Àº Å©±â°¡ 1ÀÎ ¹è¿­·Î ºÐÇÒ ÇÒ¶§±îÁö logn¸¸Å­ ¹Ýº¹
-  °¢ ºÐÇÒµÈ ¸®½ºÆ®º°·Î ÇÕº´À» ÁøÇàÇÏ¹Ç·Î ½Ã°£º¹Àâµµ nlogn
-- Divde and ConquerÀ» ÀÌ¿ë
+- ì‹œê°„ë³µìž¡ë„ : O(nlogn) / ê³µê°„ë³µìž¡ë„ : O(n)
+- ì •ë ¬í•  ì›ì†Œë“¤ì„ ë°˜ìœ¼ë¡œ ë¶„í• í•´ ë‚˜ê°€ë©° ê° ë¶„í• ëœ ë¦¬ìŠ¤íŠ¸ ë‚´ì—ì„œ ë¨¼ì € ì •ë ¬ í›„ ë³‘í•©í•˜ë©° ì •ë ¬í•˜ëŠ” ê³¼ì •ì„ í†µí•´ ì •ë ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜
+- ë¶„í•  ê³¼ì •ì€ í¬ê¸°ê°€ 1ì¸ ë°°ì—´ë¡œ ë¶„í•  í• ë•Œê¹Œì§€ lognë§Œí¼ ë°˜ë³µ
+  ê° ë¶„í• ëœ ë¦¬ìŠ¤íŠ¸ë³„ë¡œ í•©ë³‘ì„ ì§„í–‰í•˜ë¯€ë¡œ ì‹œê°„ë³µìž¡ë„ nlogn
+- Divde and Conquerì„ ì´ìš©
 
 ## Quick Sort
-- ½Ã°£º¹Àâµµ : worst O(n^2), best O(nlogn) / °ø°£º¹Àâµµ : O(n)
-- pivotÀ» ¼±Á¤ÇÏ¿© pivotÀ» ±âÁØÀ¸·Î ÁÂÃø°ú ¿ìÃø¿¡¼­ 
-  pivotº¸´Ù ÀÛÀº °ªÀº ¿ÞÂÊ, pivotº¸´Ù Å« °ªÀº ¿À¸¥ÂÊÀ¸·Î Àç¹èÄ¡¸¦ ÇÏ°í °è¼ÓÇØ¼­ ºÐÇÒÇÏ¿© ºÐÇÒµÈ ¹è¿­ÀÇ Å©±â°¡ 1ÀÌ µÉ¶§±îÁö Á¤·ÄÇÏ´Â ¾Ë°í¸®Áò
-- ÃÖ¾ÇÀÇ °æ¿ì : ÀÌ¹Ì Á¤·ÄµÇ¾îÀÖ´Â °æ¿ì, ºÐÇÒÀÌ n¸¸Å­ ÀÏ¾î³ª¹Ç·Î ½Ã°£º¹Àâµµ°¡ O(n^2)
-  pivotÀÌ ÃÖ´ë°ªÀÌ³ª, ÃÖ¼Ò°ªÀ¸·Î ÀâÈ÷°Ô µÉ °æ¿ì?
-  ÀÌ¸¦ ¹æÁöÇÏ±â À§ÇØ ¿ø¼Ò °ª Áß Áß°£°ªÀÌ³ª ·£´ý °ªÀ¸·Î pivot point¸¦ Á¤ÇÏ´Â ¹æ¹ýÀ» »ç¿ëÇÏ±âµµ ÇÔ.
-- °úÁ¤
-  1. ¹è¿­ ¿ø¼Ò Áß ÇÏ³ª¸¦ pivot point·Î ¼±Á¤. (º¸Åë ¸Ç ¾Õ or ¸Ç µÚ or Áß°£ °ª or ·£´ý °ª)
-  2. ¹è¿­ÀÇ °¡Àå ¿ÞÂÊ°ú °¡Àå ¿À¸¥ÂÊ idx : left, right
-  3. left < right ÀÏ °æ¿ì¿¡¸¸ pivot°ú µÑÀÇ ¿ø¼Ò °ªÀ» ºñ±³
-    3-1. right ¿ø¼Ò °ª, pivot ºñ±³
-		- right ¿ø¼Ò °ª > pivot ÀÌ¸é, --right ÈÄ ºñ±³(3-1)¸¦ ¹Ýº¹
-    	- right ¿ø¼Ò °ª < pivot ÀÌ¸é, ºñ±³ ÁßÁö
-    3-2. left ¿ø¼Ò °ª, pivot ºñ±³
-		- left ¿ø¼Ò °ª < pivot ÀÌ¸é, ++left ÈÄ ºñ±³(3-2)¸¦ ¹Ýº¹
-		- left ¿ø¼Ò °ª > pivot ÀÌ¸é, ºñ±³ ÁßÁö
-  4. left ¿ø¼Ò °ª°ú right ¿ø¼Ò °ªÀ» ±³È¯ÇÏ°í, °úÁ¤ 3À» ¹Ýº¹
-  5. À§ °úÁ¤ÀÌ ³¡³ª¸é left ¿ø¼Ò °ª°ú pivot °ªÀ» ±³È¯
-  6. °¡Àå ¿ÞÂÊºÎÅÍ left-1±îÁö, left+1ºÎÅÍ °¡Àå ¿À¸¥ÂÊ±îÁö ³ª´©¾î Äü Á¤·ÄÀ» ¹Ýº¹
+- ì‹œê°„ë³µìž¡ë„ : worst O(n^2), best O(nlogn) / ê³µê°„ë³µìž¡ë„ : O(n)
+- pivotì„ ì„ ì •í•˜ì—¬ pivotì„ ê¸°ì¤€ìœ¼ë¡œ ì¢Œì¸¡ê³¼ ìš°ì¸¡ì—ì„œ 
+  pivotë³´ë‹¤ ìž‘ì€ ê°’ì€ ì™¼ìª½, pivotë³´ë‹¤ í° ê°’ì€ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ìž¬ë°°ì¹˜ë¥¼ í•˜ê³  ê³„ì†í•´ì„œ ë¶„í• í•˜ì—¬ ë¶„í• ëœ ë°°ì—´ì˜ í¬ê¸°ê°€ 1ì´ ë ë•Œê¹Œì§€ ì •ë ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜
+- ìµœì•…ì˜ ê²½ìš° : ì´ë¯¸ ì •ë ¬ë˜ì–´ìžˆëŠ” ê²½ìš°, ë¶„í• ì´ në§Œí¼ ì¼ì–´ë‚˜ë¯€ë¡œ ì‹œê°„ë³µìž¡ë„ê°€ O(n^2)
+  pivotì´ ìµœëŒ€ê°’ì´ë‚˜, ìµœì†Œê°’ìœ¼ë¡œ ìž¡ížˆê²Œ ë  ê²½ìš°?
+  ì´ë¥¼ ë°©ì§€í•˜ê¸° ìœ„í•´ ì›ì†Œ ê°’ ì¤‘ ì¤‘ê°„ê°’ì´ë‚˜ ëžœë¤ ê°’ìœ¼ë¡œ pivot pointë¥¼ ì •í•˜ëŠ” ë°©ë²•ì„ ì‚¬ìš©í•˜ê¸°ë„ í•¨.
+- ê³¼ì •
+  1. ë°°ì—´ ì›ì†Œ ì¤‘ í•˜ë‚˜ë¥¼ pivot pointë¡œ ì„ ì •. (ë³´í†µ ë§¨ ì•ž or ë§¨ ë’¤ or ì¤‘ê°„ ê°’ or ëžœë¤ ê°’)
+  2. ë°°ì—´ì˜ ê°€ìž¥ ì™¼ìª½ê³¼ ê°€ìž¥ ì˜¤ë¥¸ìª½ idx : left, right
+  3. left < right ì¼ ê²½ìš°ì—ë§Œ pivotê³¼ ë‘˜ì˜ ì›ì†Œ ê°’ì„ ë¹„êµ
+    3-1. right ì›ì†Œ ê°’, pivot ë¹„êµ
+		- right ì›ì†Œ ê°’ > pivot ì´ë©´, --right í›„ ë¹„êµ(3-1)ë¥¼ ë°˜ë³µ
+    	- right ì›ì†Œ ê°’ < pivot ì´ë©´, ë¹„êµ ì¤‘ì§€
+    3-2. left ì›ì†Œ ê°’, pivot ë¹„êµ
+		- left ì›ì†Œ ê°’ < pivot ì´ë©´, ++left í›„ ë¹„êµ(3-2)ë¥¼ ë°˜ë³µ
+		- left ì›ì†Œ ê°’ > pivot ì´ë©´, ë¹„êµ ì¤‘ì§€
+  4. left ì›ì†Œ ê°’ê³¼ right ì›ì†Œ ê°’ì„ êµí™˜í•˜ê³ , ê³¼ì • 3ì„ ë°˜ë³µ
+  5. ìœ„ ê³¼ì •ì´ ëë‚˜ë©´ left ì›ì†Œ ê°’ê³¼ pivot ê°’ì„ êµí™˜
+  6. ê°€ìž¥ ì™¼ìª½ë¶€í„° left-1ê¹Œì§€, left+1ë¶€í„° ê°€ìž¥ ì˜¤ë¥¸ìª½ê¹Œì§€ ë‚˜ëˆ„ì–´ í€µ ì •ë ¬ì„ ë°˜ë³µ
 
 ## Heap Sort
-- ½Ã°£ º¹Àâµµ : O(nlogn)
-  * ÃÖÃÊ·Î ÈüÀ» ¸¸µå´Â ½Ã°£º¹Àâµµ O(n) + ¸»´Ü ³ëµå°¡ ·çÆ® ³ëµå¿¡ ¿Ã¶ó¿À±â±îÁö ÀÚ¸®ÀÌµ¿ O(nlogn)
-- ÃÖ´ë [Èü Æ®¸®](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Data%20Structure.md)(³»¸²Â÷¼ø)³ª ÃÖ¼Ò Èü Æ®¸®(¿À¸§Â÷¼ø)¸¦ ±¸¼ºÇØ Á¤·Ä ÇÏ´Â ¹æ¹ý.
+- ì‹œê°„ ë³µìž¡ë„ : O(nlogn)
+  * ìµœì´ˆë¡œ íž™ì„ ë§Œë“œëŠ” ì‹œê°„ë³µìž¡ë„ O(n) + ë§ë‹¨ ë…¸ë“œê°€ ë£¨íŠ¸ ë…¸ë“œì— ì˜¬ë¼ì˜¤ê¸°ê¹Œì§€ ìžë¦¬ì´ë™ O(nlogn)
+- ìµœëŒ€ [íž™ íŠ¸ë¦¬](https://github.com/acornjello/TIL/blob/master/Data%20Structure%2C%20Algorithm/Data%20Structure.md)(ë‚´ë¦¼ì°¨ìˆœ)ë‚˜ ìµœì†Œ íž™ íŠ¸ë¦¬(ì˜¤ë¦„ì°¨ìˆœ)ë¥¼ êµ¬ì„±í•´ ì •ë ¬ í•˜ëŠ” ë°©ë²•.
 
 ## Bubble Sort
-- ½Ã°£º¹Àâµµ : worst O(n^2), best O(n)  / °ø°£º¹Àâµµ : O(n)
-- ¿¬¼ÓµÈ µÎ °³ÀÇ ÀÎµ¦½º¸¦ ºñ±³ÇÏ¿©, ´õ Å« °ª ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿½ÃÄÑ Á¤·ÄÇÏ´Â ¾Ë°í¸®Áò
+- ì‹œê°„ë³µìž¡ë„ : worst O(n^2), best O(n)  / ê³µê°„ë³µìž¡ë„ : O(n)
+- ì—°ì†ëœ ë‘ ê°œì˜ ì¸ë±ìŠ¤ë¥¼ ë¹„êµí•˜ì—¬, ë” í° ê°’ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™ì‹œì¼œ ì •ë ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜
 
 ## Selection Sort
-- ½Ã°£º¹Àâµµ : worst O(n^2), best O(n) / °ø°£º¹Àâµµ : O(n)
-- ÇÑ ¹ø ¼øÈ¸¸¦ ÇÏ¸é¼­ °¡Àå Å« ¼ö¸¦ Ã£¾Æ¼­ ¹è¿­ÀÇ ¸¶Áö¸· À§Ä¡¿Í ±³È¯ÇÏ´Â ¾Ë°í¸®Áò.
-- ÀÌ¹Ì Á¤·ÄµÇ¾îÀÖ´Â ¹è¿­ÀÇ °æ¿ì, Á¤·Ä ¾Ë°í¸®Áò Áß °¡Àå ¼º´ÉÀ» °¡Áü.
-  (¾ÕÀÚ¸® ¿ø¼Ò¿Í ÇÑ ¹ø¸¸ ºñ±³ÇÏ¸é µÇ±â ¶§¹®)
+- ì‹œê°„ë³µìž¡ë„ : worst O(n^2), best O(n) / ê³µê°„ë³µìž¡ë„ : O(n)
+- í•œ ë²ˆ ìˆœíšŒë¥¼ í•˜ë©´ì„œ ê°€ìž¥ í° ìˆ˜ë¥¼ ì°¾ì•„ì„œ ë°°ì—´ì˜ ë§ˆì§€ë§‰ ìœ„ì¹˜ì™€ êµí™˜í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜.
+- ì´ë¯¸ ì •ë ¬ë˜ì–´ìžˆëŠ” ë°°ì—´ì˜ ê²½ìš°, ì •ë ¬ ì•Œê³ ë¦¬ì¦˜ ì¤‘ ê°€ìž¥ ì„±ëŠ¥ì„ ê°€ì§.
+  (ì•žìžë¦¬ ì›ì†Œì™€ í•œ ë²ˆë§Œ ë¹„êµí•˜ë©´ ë˜ê¸° ë•Œë¬¸)
 
 ## Insertion Sort
-- ½Ã°£º¹Àâµµ : worst O(n^2), best O(n)
-- ÇöÀç À§Ä¡º¸´Ù ¾Æ·¡ÂÊÀ» ¼øÈ¸ÇÏ¸ç ÇöÀç À§Ä¡ÀÇ °ª¿¡ ¾Ë¸ÂÀº À§Ä¡¿¡ ³Ö¾îÁÖ´Â ¾Ë°í¸®Áò.
+- ì‹œê°„ë³µìž¡ë„ : worst O(n^2), best O(n)
+- í˜„ìž¬ ìœ„ì¹˜ë³´ë‹¤ ì•„ëž˜ìª½ì„ ìˆœíšŒí•˜ë©° í˜„ìž¬ ìœ„ì¹˜ì˜ ê°’ì— ì•Œë§žì€ ìœ„ì¹˜ì— ë„£ì–´ì£¼ëŠ” ì•Œê³ ë¦¬ì¦˜.
