@@ -16,6 +16,8 @@
 - 네트워크
 - 데이터베이스
 - 운영체제
+	+ race conndition
+	+ mutex
 - 컴퓨터구조
 - 자료구조 및 알고리즘
 	1. Data Structure
