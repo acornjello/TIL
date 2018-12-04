@@ -85,4 +85,43 @@ Y = [1, 2, 3] (결과)
     5. cost(W, b) = 위와 동일
     6. Goal : minimize cost
         - minimizeCost(W, b)
+        
+// ex2
 
+2. minimize cost
+    1. H(x) = Wx (간단하게 만듦)
+        - cost(W) = (1/m) sigma(1~m)(Wx_i - u_i)^2
+        - x=[1, 2, 3], y=[1, 2, 3]
+        - if W==1이라면 cost(W)는?
+            = 1/3 (1-1)^2 + (1-2)^2 + (3-3)^2 = 0
+        - if W==0이라면,
+            1/3 (1 + 4 + 9) = 4.67
+        - W=2 -> 4.67
+
+        - y축 cost(W) x축 W인 cost(W)그래프를 그려볼때 이차원나옴
+        - 최소화됨 cost(W)를 찾아야함 ==> Gradient(경사를 따라) descent(내려가는) algorithm
+    2. Gradient descent algorithm
+        - minimize cost function
+        - 많은 최소화 문제에 사용
+        - cost(W, b)가 최소화되는 W, b를 찾아줌
+        - also apllied to cost(w1, w2, w3, ...)
+        
+        + 찾는 원리
+            * 경사도(기울기를 찾기 위해 미분값을 찾음)
+            더 편하게 찾기 위해 1/m -> 1/2m으로
+            미분한 공식 ==> gradient decent algorithm
+
+            * convex function
+            cost function을 3차원으로 그릴 때의 문제점
+            : 시작점을 다른 곳으로 잡을 때 경사면을 다른 결과값이 나옴
+            : convex function : 어느 지점에서 시작하던간에 같은 최소값 나오게함
+            ==> 따라서 cost function이 convex function인지 확인해야함
+
+>>> activate tensorflow
+>>> conda install -c anaconda matplotlib
+//ex3
+3. multi-variable
+    0. recap
+        - hypothesis
+        - cost function
+        - gradient descent algorithm 
