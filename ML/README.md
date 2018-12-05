@@ -122,7 +122,25 @@ Y = [1, 2, 3] (결과)
 //ex3
 
 ###3. multi-variable
-    0. recap
+1. recap
         - hypothesis
         - cost function
         - gradient descent algorithm 
+2. 3개일 경우 x1, x2, x3
+    - H(x1, x2, x3) = w1x1 + w2x2 + w3x3 + b
+    - cost는 똑같음
+
+    -> 그러나 value가 많아질수록 불편 -> Matrix
+
+3. Matrix multiplication
+                 (w1)
+    (x1 x2 x3) * (w2)   => H(X) = XW 
+                 (w3)
+
+    matrix 사용의 장점 : X의 인스턴스 마다 계산해줄필요없이 다해줌
+    X : [#instance, #var], H(X)[#instance, Y] ==> W [#var, Y]
+    #instance는 가변의 값이기 때문에 numpy경우는 -1, tensorflow는 none ==> n개라고 생각하면 됨.
+
+4. WX vs XW
+    - Lecture(theory) : Wx + b
+    - Implementation(tensorflow) : H(X) = XW
