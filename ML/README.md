@@ -73,7 +73,7 @@ Y = [1, 2, 3] (결과)
 - linear하다라고 가설했을 때  ==> linear regression
 - ex) 집의 크기가 클수록 가격상승, 훈련 많이할 수록 좋은 체력 등
 
-1. (Linear) Hypothesis
+###1. (Linear) Hypothesis
     1. H(x) = Wx+b // H(x) 가설, W와 b에따라 그래프 모양 달라짐
     2. which hypothesis is better? ==> which W and b is better?
     3. 가설에 나타내는 점과 실제 데이터 값의 차이룰 계산 --> cost function
@@ -88,7 +88,7 @@ Y = [1, 2, 3] (결과)
         
 // ex2
 
-2. minimize cost
+###2. minimize cost
     1. H(x) = Wx (간단하게 만듦)
         - cost(W) = (1/m) sigma(1~m)(Wx_i - u_i)^2
         - x=[1, 2, 3], y=[1, 2, 3]
@@ -117,10 +117,11 @@ Y = [1, 2, 3] (결과)
             : convex function : 어느 지점에서 시작하던간에 같은 최소값 나오게함
             ==> 따라서 cost function이 convex function인지 확인해야함
 
->>> activate tensorflow
->>> conda install -c anaconda matplotlib
+> - activate tensorflow
+> - conda install -c anaconda matplotlib
 //ex3
-3. multi-variable
+
+###3. multi-variable
     0. recap
         - hypothesis
         - cost function
