@@ -2,24 +2,18 @@ package me.jaeyun.demorestapiwithspring.events;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
-//TODO(1) java bean spec으로 만들어져 있는지
-// 1. 생성자 만들어져있는지
-// 2. getter, setter
-// ==> lombok 사용
-
-//TODO(3) builder - lombok plugin 설치
-// compile된 클래스에 가보면 builder 메소드 등을 만들어줌(lombok이 함)
-// hashcode와 equals 구현시 인스턴스 간에 서로 참조하는 관계게 돼버리면 두 함수에 stack overflow가 일어날 수 있음.
-// 더 추가할 수 있음 (of= {"id", "account"}) ==> 다른 엔티티와 연관관계에 해당하는 것을 넣는것은 좋지 않음
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id")
-// 위 anno를 하나의 custom한 anno로 만들 수 있음 but lombok annot는 meta anno를 지원하지 않음
-// @Data : equals and hashcode 구현해줌 but 모든 property 사용
 
+// TODO(1) DB에 저장하기 위해서 Event를 Entity로 만들어줘야함.
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;
@@ -33,5 +27,7 @@ public class Event {
     private int limitOfEnrollment;
     private boolean offline;
     private boolean free;
+    // enum의 순서가 바뀌면 데이터가 꼬일 수 있기 떄문에 ordinal보다 string으로 저장
+    @Enumerated(EnumType.STRING)
     private EventStatus eventStatus;
 }

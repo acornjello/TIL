@@ -15,18 +15,20 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 @RequestMapping(value="/api/events", produces = MediaTypes.HAL_JSON_UTF8_VALUE)
 public class EventController {
 
+    //    @Autowired
+    //    EventRepository eventRepository;
+    // TODO(2) 생성자를 사용할 때 생성자가 하나만 있고, 받아올 파라미터가 빈으로 등록돼있다면 autowired 생략가능 spring 4.3부터
+
+    private final EventRepository eventRepository;
+
+    public EventController(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+    }
+
     @PostMapping
     public ResponseEntity createEvent(@RequestBody Event event) {
-        /**1. createUri의 헤더를 가지는 201 응답**/
-        // created를 보낼때는 항상 uri가있어야함 => hateos가 제공하는 linkto, method on을 사용하면 쉽게 만듦
-        // createEvent() 에서 linkto(EventController.class) ==> PostMapping 링크가 EventController에 없을 경우 methodOn 사용
-        // createEvent(@RequestBody Event event)로 될 경우 methodOn이 정확한 함수를 찾아가기 위해서 createEvent(null)로 처리
-        // URI createUri = linkTo(methodOn(EventController.class).createEvent(event)).slash("{id}").toUri();
-        // return ResponseEntity.created(createUri).build();
-
-        event.setId(10);
-        URI createUri = linkTo(EventController.class).slash("{id}").toUri();
-
+        Event newEvent = this.eventRepository.save(event);  // mock객체이므로 nullpoint exception발생
+        URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
 
         return ResponseEntity.created(createUri).body(event);
     }
