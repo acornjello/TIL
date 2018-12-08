@@ -29,5 +29,5 @@ public class Event {
     private boolean free;
     // enum의 순서가 바뀌면 데이터가 꼬일 수 있기 떄문에 ordinal보다 string으로 저장
     @Enumerated(EnumType.STRING)
-    private EventStatus eventStatus;
+    private EventStatus eventStatus = EventStatus.DRAFT;
 }

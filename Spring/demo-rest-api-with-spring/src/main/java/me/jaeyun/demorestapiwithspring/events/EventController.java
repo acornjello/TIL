@@ -1,5 +1,6 @@
 package me.jaeyun.demorestapiwithspring.events;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.management.modelmbean.ModelMBean;
 import java.net.URI;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -21,12 +23,25 @@ public class EventController {
 
     private final EventRepository eventRepository;
 
-    public EventController(EventRepository eventRepository) {
+    private final ModelMapper modelMapper;
+
+    public EventController(EventRepository eventRepository, ModelMapper modelMapper) {
         this.eventRepository = eventRepository;
+        this.modelMapper = modelMapper;
     }
 
     @PostMapping
-    public ResponseEntity createEvent(@RequestBody Event event) {
+    public ResponseEntity createEvent(@RequestBody EventDto eventDto) {
+        // ModelMapper를 통해 dto를 event로 -- reflection이 있지만 점점 성성 좋아짐
+        // 원래는 빌더를 사용해서 다 옮겨야함.
+        /**
+         *Event event = Event.builder()
+         *                 .name(eventDto.getName())
+         *                 .description(eventDto.getDescription())
+         *                 .build()
+         */
+
+        Event event = modelMapper.map(eventDto, Event.class);
         Event newEvent = this.eventRepository.save(event);  // mock객체이므로 nullpoint exception발생
         URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
 
