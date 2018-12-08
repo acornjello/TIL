@@ -32,17 +32,9 @@ public class EventController {
 
     @PostMapping
     public ResponseEntity createEvent(@RequestBody EventDto eventDto) {
-        // ModelMapper를 통해 dto를 event로 -- reflection이 있지만 점점 성성 좋아짐
-        // 원래는 빌더를 사용해서 다 옮겨야함.
-        /**
-         *Event event = Event.builder()
-         *                 .name(eventDto.getName())
-         *                 .description(eventDto.getDescription())
-         *                 .build()
-         */
 
         Event event = modelMapper.map(eventDto, Event.class);
-        Event newEvent = this.eventRepository.save(event);  // mock객체이므로 nullpoint exception발생
+        Event newEvent = this.eventRepository.save(event);
         URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
 
         return ResponseEntity.created(createUri).body(event);

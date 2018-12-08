@@ -2,16 +2,11 @@ package me.jaeyun.demorestapiwithspring.events;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -22,13 +17,10 @@ import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-//@WebMvcTest
-@SpringBootTest // mocking할게 많아 springboot test가 편함 --> 통합테스트로
+@SpringBootTest
 @AutoConfigureMockMvc
 public class EventControllerTests {
 
@@ -37,11 +29,6 @@ public class EventControllerTests {
 
     @Autowired
     ObjectMapper objectMapper;
-
-    // TODO(3) 실제 Repository 빈이 있으나 WebMvcTest가 Web관련 빈만 다루기 때문에 repository에 대한 빈을 mock으로 설정해줘야함
-
-    @MockBean
-    EventRepository eventRepository;
 
     @Test
     public void createEvent() throws Exception {
@@ -62,11 +49,9 @@ public class EventControllerTests {
                 .eventStatus(EventStatus.PUBLISHED)
                 .build();
 
-        // TODO(4)  Repository가 mock 객체이기 때문에 save되는 값이 모두 null --> 에러 발생
-        // repository에서 save가 호출이 되면, event를 리턴
         // event.setId(10);
-        //Mockito.when(eventRepository.save(event)).thenReturn(event);
-        // mocking이 적용이 안되어 null이발생할 수 있음. -> mocking안하기
+        // Mockito.when(eventRepository.save(event)).thenReturn(event);
+        // newEvent != event이기 때문에 mocking이 적용이 안되어 null이발생할 수 있음. -> mocking안하기
         // --> 실제 repository사용됨
 
         mockMvc.perform(post("/api/events/")
@@ -80,7 +65,7 @@ public class EventControllerTests {
                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("id").value(CoreMatchers.not(100)))
                 .andExpect(jsonPath("free").value(CoreMatchers.not(true)))
-                .andExpect(jsonPath("eventStatus").value(CoreMatchers.not(EventStatus.DRAFT.name())))
+                .andExpect(jsonPath("eventStatus").value(EventStatus.DRAFT.name()))
         ;
 
     }
