@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.management.modelmbean.ModelMBean;
 import javax.validation.Valid;
 import java.net.URI;
 
@@ -23,9 +22,12 @@ public class EventController {
 
     private final ModelMapper modelMapper;
 
-    public EventController(EventRepository eventRepository, ModelMapper modelMapper) {
+    private final EventValidator eventValidator;
+
+    public EventController(EventRepository eventRepository, ModelMapper modelMapper, EventValidator eventValidator) {
         this.eventRepository = eventRepository;
         this.modelMapper = modelMapper;
+        this.eventValidator = eventValidator;
     }
 
     // valid : request에 들어오는 값들을 바인딩할때 anno에 대한 검증을 수행할 수 있음.
@@ -36,6 +38,12 @@ public class EventController {
         if(errors.hasErrors()) {
             return ResponseEntity.badRequest().build();
         }
+
+        eventValidator.validate(eventDto, errors);
+        if(errors.hasErrors()) {
+            return ResponseEntity.badRequest().build();
+        }
+
         Event event = modelMapper.map(eventDto, Event.class);
         Event newEvent = this.eventRepository.save(event);
         URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
