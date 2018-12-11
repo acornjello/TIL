@@ -4,11 +4,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.management.modelmbean.ModelMBean;
+import javax.validation.Valid;
 import java.net.URI;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -16,10 +18,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 @Controller
 @RequestMapping(value="/api/events", produces = MediaTypes.HAL_JSON_UTF8_VALUE)
 public class EventController {
-
-    //    @Autowired
-    //    EventRepository eventRepository;
-    // TODO(2) 생성자를 사용할 때 생성자가 하나만 있고, 받아올 파라미터가 빈으로 등록돼있다면 autowired 생략가능 spring 4.3부터
 
     private final EventRepository eventRepository;
 
@@ -30,9 +28,14 @@ public class EventController {
         this.modelMapper = modelMapper;
     }
 
-    @PostMapping
-    public ResponseEntity createEvent(@RequestBody EventDto eventDto) {
+    // valid : request에 들어오는 값들을 바인딩할때 anno에 대한 검증을 수행할 수 있음.
+    // 이 검증을 수행한 결과를 그 객체 오른쪽에 있는 error에 담아줌.
 
+    @PostMapping
+    public ResponseEntity createEvent(@RequestBody @Valid EventDto eventDto, Errors errors) {
+        if(errors.hasErrors()) {
+            return ResponseEntity.badRequest().build();
+        }
         Event event = modelMapper.map(eventDto, Event.class);
         Event newEvent = this.eventRepository.save(event);
         URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
