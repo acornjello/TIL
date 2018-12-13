@@ -36,12 +36,18 @@ public class EventController {
     @PostMapping
     public ResponseEntity createEvent(@RequestBody @Valid EventDto eventDto, Errors errors) {
         if(errors.hasErrors()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(errors);
         }
-
         eventValidator.validate(eventDto, errors);
         if(errors.hasErrors()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(errors);
+            // serialization - object->json 반대 deserialization
+            // body(errors) 는 json으로 변환할 수 없음 => event라는 도메인은 java properties
+            // body에 담아준 event객체를 json으로 변환할 때 objectMapper를 사용함.
+            // objectMapper는 BeanSerializer를 이용하여 Java의 bean스펙을 준수한 객체인 Event를 변환할 수 있었음.
+            // (아무런 custom한 serializer 없이도)
+            // but errors는 java bean 스펙을 준수한 객체가 아님. -> bean serializer를 이용하여 json으로 변환할 수 없음.
+            // produce 설정때문에 body에 errors를 담으면 json으로 변환하려는 시도가 있음-> 에러남
         }
 
         Event event = modelMapper.map(eventDto, Event.class);
