@@ -30,4 +30,21 @@ public class Event {
     // enum의 순서가 바뀌면 데이터가 꼬일 수 있기 떄문에 ordinal보다 string으로 저장
     @Enumerated(EnumType.STRING)
     private EventStatus eventStatus = EventStatus.DRAFT;
+
+    public void update() {
+        // Update free
+        if(this.basePrice == 0 && this.maxPrice == 0) {
+            this.free = true;
+        } else {
+            this.free = false;
+        }
+
+        // Update offline
+        // isBlank 공백 먼저 확인
+        if(this.location == null || this.location.isBlank()) {
+            this.offline = false;
+        } else {
+            this.offline = true;
+        }
+    }
 }
