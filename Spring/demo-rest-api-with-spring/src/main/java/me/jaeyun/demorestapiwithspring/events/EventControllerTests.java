@@ -47,7 +47,7 @@ public class EventControllerTests {
     public void createEvent() throws Exception {
         EventDto event = EventDto.builder()
                 .name("Spring")
-                .description("REST API Development with Spring")
+                .description("REST API Development with Spring Boot")
                 .beginEnrollmentDateTime(LocalDateTime.of(2018, 11, 23, 14, 21))
                 .closeEnrollmentDateTime(LocalDateTime.of(2018, 11, 24, 14, 21))
                 .beginEventDateTime(LocalDateTime.of(2018, 11, 25, 14, 21))
@@ -70,9 +70,9 @@ public class EventControllerTests {
                 .andExpect(jsonPath("free").value(false))
                 .andExpect(jsonPath("offline").value(true))
                 .andExpect(jsonPath("eventStatus").value(EventStatus.DRAFT.name()))
-                .andExpect(jsonPath("_links.self").exists())
-                .andExpect(jsonPath("_links.query-events").exists())
-                .andExpect(jsonPath("_links.update-event").exists())
+//                .andExpect(jsonPath("_links.self").exists())
+//                .andExpect(jsonPath("_links.query-events").exists())
+//                .andExpect(jsonPath("_links.update-event").exists())
                 .andDo(document("create-event",
                         // 링크 정보를 여기서 테스트했기 때문에 relaxed를 사용하지않을때 에러가 나는것이 썩 좋지 않은 것 같음.
                         // 코드 기여를 할만한 부분
@@ -124,7 +124,8 @@ public class EventControllerTests {
                                 fieldWithPath("eventStatus").description("event status"),
                                 fieldWithPath("_links.self.href").description("link to self"),
                                 fieldWithPath("_links.query-events.href").description("link to query event list"),
-                                fieldWithPath("_links.update-event.href").description("link to update existing event")
+                                fieldWithPath("_links.update-event.href").description("link to update existing event"),
+                                fieldWithPath("_links.profile.href").description("link to profile")
                         )
                 )) // 문서의 이름
         ;
