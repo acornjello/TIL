@@ -47,8 +47,6 @@ JDBC를 이용하여 직접 구현할 수 있지만 Persistence Framework를 이
 - JPA를 한단계 추상화시킨 Repository 인터페이스 제공
 - Repository 인터페이스에 정해진 규칙대로 메소드를 입력하면 Spring이 알아서 해당 메소드 이름에 적합한 쿼리를 날리는 구현체를 만들어서 Bean에 등록한다.
 
-![81DBF028-7D6C-4424-80AE-6DCA95D25A84.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0db9d9d8-4ada-43f1-a2b6-6fd8ffd0021b/81DBF028-7D6C-4424-80AE-6DCA95D25A84.png)
-
 ## ORM (Object Relation Mapper)
 
 - 대이터베이스를 객체로 매핑함으로써 객체 간의 관계를 바탕으로 테이블을 관리하는 것
